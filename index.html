@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Notes - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 19V6M5 12l7-7 7 7"/>
+                </svg>
+                <span>DevNotes</span>
+            </a>
+            <button class="nav-btn mobile-menu-btn" id="close-sidebar-btn" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <nav class="sidebar-menu">
+            <!-- Dashboard / Overview -->
+            <div class="menu-category">
+                <a href="index.html" class="menu-category-title nav-link">
+                    <span>PANEL</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                </a>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link active" data-scroll-link="dashboard">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                                <polyline points="12 6 12 12 16 14" stroke-width="2"/>
+                            </svg>
+                            <span>Genel Bakış</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Backend Category -->
+            <div class="menu-category">
+                <a href="backend.html" class="menu-category-title nav-link">
+                    <span>BACKEND</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                        <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                        <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                    </svg>
+                </a>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="backend.html#docker" class="menu-link" data-scroll-link="docker">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M22 12.5C22 17.75 17.75 22 12.5 22C7.25 22 3 17.75 3 12.5C3 7.25 7.25 3 12.5 3" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M7 10H8.5V11.5H7V10Z" fill="currentColor"/>
+                                <path d="M9.5 10H11V11.5H9.5V10Z" fill="currentColor"/>
+                                <path d="M12 10H13.5V11.5H12V10Z" fill="currentColor"/>
+                                <path d="M14.5 10H16V11.5H14.5V10Z" fill="currentColor"/>
+                                <path d="M8.25 7.5H9.75V9H8.25V7.5Z" fill="currentColor"/>
+                                <path d="M10.75 7.5H12.25V9H10.75V7.5Z" fill="currentColor"/>
+                                <path d="M13.25 7.5H14.75V9H13.25V7.5Z" fill="currentColor"/>
+                                <path d="M12 5H13.5V6.5H12V5Z" fill="currentColor"/>
+                            </svg>
+                            <span>Docker & Setup</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Java Category -->
+            <div class="menu-category">
+                <a href="java.html" class="menu-category-title nav-link">
+                    <span>JAVA</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                        <path d="M6 1v3"></path>
+                        <path d="M10 1v3"></path>
+                        <path d="M14 1v3"></path>
+                    </svg>
+                </a>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="java.html#java-core" class="menu-link" data-scroll-link="java-core">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Java Temelleri</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Go Category -->
+            <div class="menu-category">
+                <a href="go.html" class="menu-category-title nav-link">
+                    <span>GO (GOLANG)</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 22 22 22"></polygon>
+                    </svg>
+                </a>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="go.html#go-basics" class="menu-link" data-scroll-link="go-basics">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Go Temelleri</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-wrapper">
+        <!-- Top Navigation Header -->
+        <header class="navbar">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <button class="nav-btn mobile-menu-btn" id="open-sidebar-btn" aria-label="Open menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="search-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="search-input" placeholder="Konularda ara (örn: backend, docker)...">
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <button class="nav-btn" id="theme-toggle" aria-label="Toggle theme">
+                    <svg id="theme-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg id="theme-moon" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Content Container -->
+        <main class="content-container">
+            <!-- Hero / Journal Header -->
+            <section class="hero">
+                <h1>Backend Öğrenim Paneli</h1>
+                <p>Backend mimarileri, Java ekosistemi ve Go programlama dili konularında öğrendiklerimi, aldığım notları ve teknik komutları derlediğim kişisel çalışma sayfam.</p>
+            </section>
+
+            <!-- Quick Stats Section -->
+            <div class="dashboard-grid">
+                <div class="stat-card">
+                    <div class="stat-icon blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number">3 Bölüm</span>
+                        <span class="stat-label">Docker & PSQL Notları</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number">Hazır</span>
+                        <span class="stat-label">Java Not Şablonu</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon cyan">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polygon points="12 2 2 22 22 22"></polygon>
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number">Hazır</span>
+                        <span class="stat-label">Go Not Şablonu</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Topic Navigator Cards -->
+            <div class="topic-grid">
+                <!-- Backend Card -->
+                <a href="backend.html" class="topic-card">
+                    <div class="topic-icon backend">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <h2 class="topic-title">Backend & Docker</h2>
+                    <p class="topic-desc">Docker compose yapısı, container yönetim komutları, PostgreSQL veritabanı ayarları ve psql CLI komutları.</p>
+                    <div class="topic-btn">
+                        <span>Notları Oku</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Java Card -->
+                <a href="java.html" class="topic-card">
+                    <div class="topic-icon java">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                            <path d="M6 1v3"></path>
+                            <path d="M10 1v3"></path>
+                            <path d="M14 1v3"></path>
+                        </svg>
+                    </div>
+                    <h2 class="topic-title">Java Geliştirme</h2>
+                    <p class="topic-desc">OOP tasarımı, Java Core, Spring Boot REST API'ler, JPA/Hibernate entegrasyonu ve JVM detayları.</p>
+                    <div class="topic-btn">
+                        <span>Notları Oku</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Go Card -->
+                <a href="go.html" class="topic-card">
+                    <div class="topic-icon go">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polygon points="12 2 2 22 22 22"></polygon>
+                        </svg>
+                    </div>
+                    <h2 class="topic-title">Go (Golang)</h2>
+                    <p class="topic-desc">Go dil yapısı, pointers, Goroutines, Channels, concurrency yönetimi ve performans pratikleri.</p>
+                    <div class="topic-btn">
+                        <span>Notları Oku</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
