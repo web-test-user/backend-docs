@@ -105,6 +105,14 @@
                             <span>Java Temelleri</span>
                         </a>
                     </li>
+                    <li class="menu-item">
+                        <a href="../java/java-basics.html#spring-boot-controller" class="menu-link" data-scroll-link="spring-boot-controller">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Spring Controller</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
 
@@ -205,6 +213,146 @@
                         </svg>
                         <h5>Henüz Java Notu Eklenmedi</h5>
                         <p>Java ile ilgili OOP prensipleri, JVM mimarisi (Heap/Stack), Spring Boot pratikleri ve Java Collections notlarınızı buraya ekleyebilirsiniz.</p>
+                    </div>
+                </div>
+
+                <div id="spring-boot-controller" class="doc-subsection search-item">
+                    <h3 class="subsection-title">Spring Boot Controller Veri Yakalama</h3>
+                    
+                    <div class="card search-item">
+                        <h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; stroke: var(--accent);">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            İstek Verilerini Yakalama (Annotations)
+                        </h4>
+                        <p>Spring Boot'ta Controller metodlarına istemciden (client) gelen veriyi yakalamak ve işlemek için kullanılan en yaygın annotation'lar şunlardır:</p>
+                        
+                        <ul class="notes-list">
+                            <li>
+                                <strong>@PathVariable</strong>
+                                <p>URI (istek adresi) içerisindeki değişken değerleri yakalamak için kullanılır. RESTful API tasarımlarında kaynak belirtmek amacıyla sıkça tercih edilir.</p>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-lang">java</span>
+                                        <button class="copy-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                            <span>Kopyala</span>
+                                        </button>
+                                    </div>
+                                    <pre><code class="language-java">@GetMapping("/api/users/{id}")
+public ResponseEntity&lt;User&gt; getUserById(@PathVariable("id") Long userId) {
+    // URL: http://localhost:8080/api/users/42
+    // userId degeri otomatik olarak 42 olacaktir.
+    return ResponseEntity.ok(userService.findById(userId));
+}</code></pre>
+                                </div>
+                            </li>
+
+                            <li>
+                                <strong>@RequestBody</strong>
+                                <p>Gelen HTTP istek gövdesindeki (Request Body) veriyi (genellikle JSON veya XML) Java nesnesine (DTO/Entity) otomatik olarak dönüştürür. POST, PUT gibi veri gönderen isteklerde kullanılır.</p>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-lang">java</span>
+                                        <button class="copy-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                            <span>Kopyala</span>
+                                        </button>
+                                    </div>
+                                    <pre><code class="language-java">@PostMapping("/api/users")
+public ResponseEntity&lt;User&gt; createUser(@RequestBody UserCreateDto userDto) {
+    // Gelen JSON verisi otomatik olarak UserCreateDto nesnesine eşlenir.
+    return ResponseEntity.status(HttpStatus.CREATED).body(userService.create(userDto));
+}</code></pre>
+                                </div>
+                            </li>
+
+                            <li>
+                                <strong>@RequestParam</strong>
+                                <p>Query (sorgu) parametrelerini veya HTML form verilerini yakalamak için kullanılır. Parametrelerin opsiyonel olması veya varsayılan değer alması sağlanabilir.</p>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-lang">java</span>
+                                        <button class="copy-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                            <span>Kopyala</span>
+                                        </button>
+                                    </div>
+                                    <pre><code class="language-java">@GetMapping("/api/users")
+public ResponseEntity&lt;List&lt;User&gt;&gt; getUsers(
+        @RequestParam(value = "role", required = false, defaultValue = "USER") String role,
+        @RequestParam(value = "page", defaultValue = "0") int page) {
+    // URL: http://localhost:8080/api/users?role=ADMIN&amp;page=2
+    return ResponseEntity.ok(userService.findAllByRole(role, page));
+}</code></pre>
+                                </div>
+                            </li>
+
+                            <li>
+                                <strong>@RequestHeader</strong>
+                                <p>HTTP istek başlıklarındaki (Request Headers) meta verileri veya özel parametreleri (örn: Authorization token) yakalamak için kullanılır.</p>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-lang">java</span>
+                                        <button class="copy-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                            <span>Kopyala</span>
+                                        </button>
+                                    </div>
+                                    <pre><code class="language-java">@GetMapping("/api/secure/data")
+public ResponseEntity&lt;String&gt; getSecureData(@RequestHeader("Authorization") String token) {
+    // HTTP Header icindeki "Authorization" anahtarinin degeri token degiskenine aktarilir.
+    return ResponseEntity.ok(securityService.processToken(token));
+}</code></pre>
+                                </div>
+                            </li>
+
+                            <li>
+                                <strong>@RequestPart</strong>
+                                <p>Multipart isteklerinde (`multipart/form-data`) dosya yükleme işlemlerini ve karmaşık nesneleri birlikte göndermek için kullanılır. Özellikle bir dosya (resim, pdf vb.) ile beraber JSON metadata göndermek için idealdir.</p>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-lang">java</span>
+                                        <button class="copy-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                            <span>Kopyala</span>
+                                        </button>
+                                    </div>
+                                    <pre><code class="language-java">@PostMapping(value = "/api/profile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+public ResponseEntity&lt;String&gt; updateProfile(
+        @RequestPart("image") MultipartFile file,
+        @RequestPart("metadata") UserProfileDto dto) {
+    // Hem yuklenen dosyayi (MultipartFile) hem de JSON nesnesini (UserProfileDto) yakalar.
+    return ResponseEntity.ok(profileService.save(file, dto));
+}</code></pre>
+                                </div>
+                            </li>
+
+                            <li>
+                                <strong>@ModelAttribute</strong>
+                                <p>HTTP istek parametrelerini (form verileri veya query parametreleri) doğrudan bir Java nesnesine (Model nesnesine) bind (bağlama) etmek için kullanılır. Özellikle çok sayıda arama filtresi içeren GET isteklerinde veya klasik MVC formlarında tercih edilir.</p>
+                                <div class="code-container">
+                                    <div class="code-header">
+                                        <span class="code-lang">java</span>
+                                        <button class="copy-btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                            <span>Kopyala</span>
+                                        </button>
+                                    </div>
+                                    <pre><code class="language-java">@GetMapping("/api/users/search")
+public ResponseEntity&lt;List&lt;User&gt;&gt; searchUsers(@ModelAttribute UserSearchFilter filter) {
+    // URL: http://localhost:8080/api/users/search?name=Ahmet&amp;age=25&amp;city=Istanbul
+    // Query parametreleri filtre nesnesinin degiskenleriyle otomatik eslesir.
+    return ResponseEntity.ok(userService.search(filter));
+}</code></pre>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
